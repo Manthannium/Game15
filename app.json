@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "Game15",
+    "name": "Game 15",
     "slug": "Game15",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/iconx.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/iconx.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -16,12 +16,18 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/iconx.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.manthan783.Game15"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/iconx.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "9b4b7657-bf8a-4e4e-8ad4-627cb6aae601"
+      }
     }
   }
 }
