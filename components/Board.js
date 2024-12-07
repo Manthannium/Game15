@@ -21,10 +21,10 @@ export default function Board({board, onPress}) {
                                 style={[{backgroundColor: getCellColor(cell)}, styles.cell]}
                                 onPress={() => onPress(rowIndex,cellIndex)}
                             >
-                                {/* <Text style={[{color: getCellColor(cell)} ,styles.cellText]}>
+                                <Text style={[{color: getCellColor(cell)} ,styles.cellText]}>
                                         {cell}
-                                </Text> */}
-                                { cell == 4*rowIndex + cellIndex + 1 ? (
+                                </Text>
+                                {/* { cell == 4*rowIndex + cellIndex + 1 ? (
                                     <Text style={[{color: 'black'} ,styles.cellText]}>
                                         {cell}
                                     </Text>
@@ -32,7 +32,7 @@ export default function Board({board, onPress}) {
                                     <Text style={[{color: getCellColor(cell)} ,styles.cellText]}>
                                         {cell}
                                     </Text>
-                                )}
+                                )} */}
                                 
                             </TouchableOpacity>
                         ))
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     board: {
         marginTop: 20,
         borderColor: 'black',
-        borderWidth: 2,
+        borderWidth: 1,
     },
     row: {
         flexDirection: 'row',
@@ -61,5 +61,6 @@ const styles = StyleSheet.create({
     },
     cellText: {
         fontSize: 36,
+        fontFamily: 'monospace',
     },
 });

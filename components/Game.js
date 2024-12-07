@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Alert, ScrollView } from 'react-native';
 import React from 'react';
 import { useState, useEffect } from 'react';
 import Board from './Board';
@@ -96,17 +96,36 @@ export default function Game() {
         setGameTitle('15 SHADES OF GREY');
     };
 
+    const showInstructions = () => {
+        // Alert.alert('Yaar itna bhi nhi ata');
+        Alert.alert(
+            'Instructions',
+            "[1] " + instructionsText + "\n[2] If you place square to its correct position, then its number will appear\n[3] To move, click on the square adjacent to empty box (black) to swap the places",
+            [
+              {text: 'Play', onPress: () => resetBoard},
+            ],
+            { cancelable: true }
+          )
+    }
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>{gameTitle}</Text>
-            <Text style={styles.instructions}>{instructions}</Text>
+            <TouchableOpacity
+                style={styles.resetButton}
+                onPress={showInstructions}
+            >
+                <Text style={styles.resetButtonText}>Instructions</Text>
+            </TouchableOpacity>
+
+            {/* <Text style={styles.instructions}>{instructions}</Text> */}
             <Board board={board} onPress={handlePress}/>
             <Text style={styles.movesCountText}>Moves : {movesCount}</Text>
             <TouchableOpacity
                 style={styles.resetButton}
                 onPress={resetBoard}
             >
-                <Text style={styles.resetButtonText}>Reshuffle</Text>
+                <Text style={styles.resetButtonText}>Shuffle</Text>
             </TouchableOpacity>
         </View>
     )
@@ -117,35 +136,41 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: 'black',
     },
     title: {
         fontSize: 26,
         padding: 10,
         fontWeight: 'bold',
-        marginBottom: 20,
+        marginBottom: 10,
         fontFamily: 'monospace',
         borderColor: 'black',
-        borderWidth: 2,
+        borderWidth: 0.2,
         borderRadius: 0,
+        backgroundColor: 'white',
     },
     instructions: {
         fontSize: 9,
         textAlign: 'center',
         fontFamily: 'monospace',
         padding: 5,
+        backgroundColor: 'white',
     },
     movesCountText: {
         padding: 0,
         marginTop: 20,
         fontFamily: 'monospace',
         fontSize: 15,
+        backgroundColor: 'white',
     },
     resetButton: {
         padding: 10,
         borderRadius: 0,
         marginTop: 20,
+        marginBottom: 10,
         borderColor: 'black',
-        borderWidth: 2,
+        borderWidth: 0.2,
+        backgroundColor: 'white',
     },
     resetButtonText: {
         color: 'black',
